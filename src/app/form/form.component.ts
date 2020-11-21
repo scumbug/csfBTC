@@ -71,7 +71,11 @@ export class FormComponent implements OnInit {
 
   processOrder(event) {
     console.log(this.orderForm.value);
-    this.router.navigate(['/confirm']);
+    this.router.navigate(['/confirm'], {
+      state: {
+        order: JSON.stringify(this.orderForm.value),
+      },
+    });
   }
 
   getCryptoPair() {
@@ -87,6 +91,7 @@ export class FormComponent implements OnInit {
       this.pairPrice = data[event.substring(3)]['last'];
     });
   }
+
   confirmDialog(): void {
     //dialog message
     const message = `You are about to ${this.f.get('orderType').value} ${
