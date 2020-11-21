@@ -13,9 +13,10 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { GetBtcService } from './getBtc.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, ConfirmDialogComponent],
+  declarations: [AppComponent, FormComponent, ConfirmDialogComponent, ConfirmationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -8,6 +8,7 @@ import {
   ConfirmDialogModel,
 } from '../confirm-dialog/confirm-dialog.component';
 import { order } from '../interfaces/order.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -24,7 +25,12 @@ export class FormComponent implements OnInit {
   cryptoPair: string[] = [];
   pairPrice: number;
 
-  constructor(private fb: FormBuilder, private callAPI: GetBtcService, public dialog: MatDialog) {}
+  constructor(
+    private fb: FormBuilder,
+    private callAPI: GetBtcService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     //init variables
@@ -65,6 +71,7 @@ export class FormComponent implements OnInit {
 
   processOrder(event) {
     console.log(this.orderForm.value);
+    this.router.navigate(['/confirm']);
   }
 
   getCryptoPair() {
