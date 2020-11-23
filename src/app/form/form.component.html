@@ -13,7 +13,7 @@
       <!-- Phone -->
       <mat-form-field appearance="outline">
         <mat-label>Phone</mat-label>
-        <input matInput placeholder="Enter your phone" value="value" formControlName="phone" />
+        <input type="number" matInput placeholder="Enter your phone" value="value" formControlName="phone" />
         <mat-error *ngIf="f.get('phone').hasError('required')">Please enter a phone!</mat-error>
         <mat-error *ngIf="f.get('phone').hasError('pattern')">Please enter a valid phone number!</mat-error>
       </mat-form-field>
@@ -77,13 +77,13 @@
       <!-- Crypto Price -->
       <mat-form-field appearance="outline">
         <mat-label>Crypto Pair Price</mat-label>
-        <input matInput formControlName="pairPrice" readonly="true" [value]="pairPrice" />
+        <input type="number" matInput formControlName="pairPrice" [value]="pairPrice" />
       </mat-form-field>
 
       <!-- Quantity -->
       <mat-form-field appearance="outline">
         <mat-label>Order Unit</mat-label>
-        <input matInput placeholder="Amount of BTC to buy" formControlName="quantity" />
+        <input type="number" matInput placeholder="Amount of BTC to buy" formControlName="quantity" />
         <mat-error *ngIf="f.get('quantity').hasError('required')">Please indicate the amount to buy/sell</mat-error>
         <mat-error *ngIf="f.get('quantity').hasError('pattern')">Please enter a number</mat-error>
       </mat-form-field>

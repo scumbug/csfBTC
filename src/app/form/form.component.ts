@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
-import { GetBtcService } from '../getBtc.service';
+import { GetBtcService } from '../services/getBtc.service';
 import {
   ConfirmDialogComponent,
   ConfirmDialogModel,
 } from '../confirm-dialog/confirm-dialog.component';
 import { order } from '../interfaces/order.interface';
 import { Router } from '@angular/router';
+import { Stor } from '../services/Stor.service';
 
 @Component({
   selector: 'app-form',
@@ -29,7 +30,8 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder,
     private callAPI: GetBtcService,
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private stor: Stor
   ) {}
 
   ngOnInit(): void {
@@ -71,11 +73,8 @@ export class FormComponent implements OnInit {
 
   processOrder(event) {
     console.log(this.orderForm.value);
-    this.router.navigate(['/confirm'], {
-      state: {
-        order: JSON.stringify(this.orderForm.value),
-      },
-    });
+    this.stor.order = this.orderForm.value;
+    this.router.navigate(['/confirm']);
   }
 
   getCryptoPair() {

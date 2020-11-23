@@ -2,7 +2,7 @@ export interface order {
   phone: number;
   name: string;
   gender: string;
-  dob: Date;
+  dob: moment.Moment;
   orderDate: Date;
   orderType: string;
   quantity: number;
